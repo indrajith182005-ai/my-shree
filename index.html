@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>For Shree 🍦💗</title>
+  <meta name="description" content="A special message for someone special." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600;700&family=Quicksand:wght@300;400;500;600;700&family=Dancing+Script:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ═══════════════ FLOATING ELEMENTS (persistent) ═══════════════ -->
+  <div class="floating-elements" id="floatingElements"></div>
+
+  <!-- ═══════════════ PAGE 1: ENVELOPE ═══════════════ -->
+  <section class="page page--active" id="page1">
+    <div class="envelope-scene">
+      <!-- Envelope -->
+      <div class="envelope" id="envelope" tabindex="0" role="button" aria-label="Click to open the envelope">
+        <!-- Back of envelope -->
+        <div class="envelope__back"></div>
+        <!-- Letter inside -->
+        <div class="envelope__letter" id="envelopeLetter">
+          <div class="letter-content">
+            <p class="letter-content__greeting">Hey Shree…</p>
+            <p class="letter-content__body">
+              I didn't know how to say this normally…<br />
+              so I made this instead 😅
+            </p>
+            <p class="letter-content__body">
+              Just go through it once… okay? 💗
+            </p>
+            <button class="btn btn--open-letter" id="btnOpenLetter">
+              Open it 😌
+            </button>
+          </div>
+        </div>
+        <!-- Front of envelope -->
+        <div class="envelope__front">
+          <div class="envelope__label">
+            <p class="envelope__to">To: Shree 🍨</p>
+            <p class="envelope__from">From: Seenu who tried something risky 😌</p>
+          </div>
+          <div class="envelope__seal">💗</div>
+        </div>
+        <!-- Flap -->
+        <div class="envelope__flap" id="envelopeFlap"></div>
+      </div>
+
+      <p class="envelope-hint" id="envelopeHint">tap the envelope 💌</p>
+    </div>
+  </section>
+
+  <!-- ═══════════════ PAGE 2: THE QUESTION ═══════════════ -->
+  <section class="page" id="page2">
+    <div class="question-scene">
+      <div class="question-sparkles" id="questionSparkles"></div>
+      <h1 class="question-text" id="questionText">Do you want us? 💗</h1>
+      <p class="question-sub" id="questionSub"></p>
+      <div class="question-buttons">
+        <button class="btn btn--yes" id="btnYes">Yes 😳</button>
+        <button class="btn btn--no" id="btnNo">No 🙄</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════ PAGE 3: CELEBRATION + CONFESSION ═══════════════ -->
+  <section class="page" id="page3">
+    <div class="confession-scene">
+      <!-- Pixel art celebration -->
+      <div class="celebration" id="celebration">
+        <div class="pixel-character" id="pixelCharacter">
+          <div class="pixel-body"></div>
+          <div class="pixel-icecream">🍦</div>
+          <div class="pixel-heart-burst" id="heartBurst"></div>
+        </div>
+        <p class="celebration__text">SHE SAID YES! 🎉💗</p>
+      </div>
+
+      <!-- Confession Card -->
+      <div class="confession-card" id="confessionCard">
+        <div class="confession-card__inner">
+          <h2 class="confession-card__title">Okay so… here's the thing 😌</h2>
+          <div class="confession-card__body">
+            <p>I really like the way you think… like actually think. Tumhari maturity honestly kaafi rare hai… and it makes me want to listen to everything you say.</p>
+            <p>Aur phir tumhara woh cute side bhi hai… jo kabhi kabhi suddenly nikalta hai 🍦 and honestly… that's what got me.</p>
+            <p>I'm not saying I have all the answers… but I know I want to figure things out with you. Grow with you… and be someone you can count on… even on messy days 💗</p>
+            <p>So yeah… yeh pura website wala scene… it's just me trying… in the most extra way possible 😅</p>
+          </div>
+          <div class="confession-card__actions">
+            <button class="btn btn--audio" id="btnVoice">
+              <span class="btn__icon">🎧</span>
+              Tap to hear something<br /><small>(don't judge 😭)</small>
+            </button>
+            <button class="btn btn--audio" id="btnSong">
+              <span class="btn__icon">🎵</span>
+              I tried this for you 🥲<br /><small>(plays a song)</small>
+            </button>
+          </div>
+          <button class="btn btn--continue" id="btnFinal">Continue 💗</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════ PAGE 4: FINAL ═══════════════ -->
+  <section class="page" id="page4">
+    <div class="final-scene">
+      <!-- Background video -->
+      <video class="final-video" id="finalVideo" muted playsinline preload="auto">
+        <source src="freepik_create-a-soft-romantic-animated-video-in-a-minimal-pixelart-chibi-gbastyle-aesthetic.-use-the-provided-reference-images-image-2-as-the-girl-character-image-1-as-the-boy-character-convert-_0001.mp4" type="video/mp4" />
+      </video>
+      <div class="icecream-rain" id="icecreamRain"></div>
+      <div class="final-content final-content--hidden" id="finalContent">
+        <div class="final-emoji">🍦😌🍦</div>
+        <div class="final-text-wrapper">
+          <h1 class="final-text">Now <span class="final-youre" id="finalYoure">you're</span> stuck with me</h1>
+          <!-- Ring that falls -->
+          <div class="ring-container" id="ringContainer">
+            <div class="ring" id="fallingRing">
+              <span class="ring__emoji">💍</span>
+              <div class="ring__sparkles" id="ringSparkles"></div>
+            </div>
+          </div>
+          <!-- Sparkle burst on landing -->
+          <div class="ring-burst" id="ringBurst"></div>
+        </div>
+        <p class="final-sub">…and I'm not even sorry 💗</p>
+        <div class="final-hearts" id="finalHearts"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Audio elements (hidden) -->
+  <audio id="audioVoice" preload="none"></audio>
+  <audio id="audioSong" preload="none"></audio>
+
+  <script src="script.js"></script>
+</body>
+</html>
