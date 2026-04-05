@@ -636,8 +636,9 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1.5rem;
+  gap: 1.2rem;
   animation: celebrationIn 1s var(--ease-out-back);
+  position: relative;
 }
 
 .celebration--hidden {
@@ -650,39 +651,35 @@ body {
   100% { opacity: 1; transform: scale(1); }
 }
 
-.pixel-character {
-  position: relative;
-  font-size: 5rem;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
+/* Celebration video */
+.celebration__video {
+  width: clamp(200px, 60vw, 320px);
+  height: auto;
+  border-radius: 20px;
+  box-shadow: 0 8px 30px rgba(214, 51, 108, 0.2);
+  image-rendering: pixelated;
 }
 
-.pixel-body {
-  width: 60px;
-  height: 80px;
-  background: linear-gradient(180deg, #fcc2d7 30%, var(--pink-400) 100%);
-  border-radius: 30px 30px 20px 20px;
-  position: relative;
+/* "Wait... there's more" button */
+.btn--more {
+  background: linear-gradient(135deg, var(--pink-400), var(--pink-600));
+  color: #fff;
+  padding: 1rem 2.5rem;
+  font-size: 1.1rem;
+  border-radius: 50px;
+  box-shadow: var(--shadow-glow-pink);
+  animation: moreButtonPulse 2s ease-in-out infinite;
+  margin-top: 0.5rem;
 }
 
-.pixel-body::before {
-  content: '😊';
-  position: absolute;
-  top: 5px;
-  left: 50%;
-  transform: translateX(-50%);
-  font-size: 2rem;
+.btn--more:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 0 40px rgba(240, 101, 149, 0.5);
 }
 
-.pixel-icecream {
-  font-size: 3.5rem;
-  animation: icecreamBounce 1s var(--ease-out-back) infinite alternate;
-}
-
-@keyframes icecreamBounce {
-  from { transform: translateY(0) rotate(-5deg); }
-  to { transform: translateY(-10px) rotate(5deg); }
+@keyframes moreButtonPulse {
+  0%, 100% { box-shadow: 0 0 15px rgba(240, 101, 149, 0.3); }
+  50% { box-shadow: 0 0 35px rgba(240, 101, 149, 0.6); }
 }
 
 .pixel-heart-burst {

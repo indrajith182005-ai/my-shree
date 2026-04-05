@@ -228,15 +228,19 @@
     // Celebration transition to page 3
     transitionToPage(3);
 
-    // Trigger celebration after entering
+    // Start the celebration video + heart burst
     setTimeout(() => {
+      const celebVideo = document.getElementById('celebrationVideo');
+      celebVideo.play().catch(() => {});
       createHeartBurst();
-      // Show confession card after celebration
-      setTimeout(() => {
-        celebration.classList.add('celebration--hidden');
-        confessionCard.classList.add('confession-card--visible');
-      }, 3000);
     }, 800);
+
+    // "Wait... there's more" button → show confession card
+    const btnMore = document.getElementById('btnMore');
+    btnMore.addEventListener('click', () => {
+      celebration.classList.add('celebration--hidden');
+      confessionCard.classList.add('confession-card--visible');
+    });
   }
 
   function handleNoClick() {
