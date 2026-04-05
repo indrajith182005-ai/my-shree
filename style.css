@@ -829,14 +829,52 @@ body {
   100% { opacity: 1; transform: scale(1) translateY(0); }
 }
 
-.final-emoji {
-  font-size: clamp(3rem, 10vw, 5rem);
-  animation: emojiWiggle 2s ease-in-out infinite;
+/* Pixel couple figurines */
+.final-couple {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 0;
+  position: relative;
 }
 
-@keyframes emojiWiggle {
-  0%, 100% { transform: rotate(-3deg); }
-  50% { transform: rotate(3deg); }
+.final-couple__boy,
+.final-couple__girl {
+  width: clamp(80px, 18vw, 140px);
+  height: auto;
+  image-rendering: pixelated;
+  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.15));
+}
+
+.final-couple__boy {
+  animation: boyIdle 3s ease-in-out infinite;
+}
+
+.final-couple__girl {
+  animation: girlIdle 3s ease-in-out infinite 0.5s;
+}
+
+.final-couple__heart {
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  position: relative;
+  bottom: 20px;
+  animation: coupleHeartPulse 1.5s ease-in-out infinite;
+  filter: drop-shadow(0 0 8px rgba(255, 105, 180, 0.5));
+}
+
+@keyframes boyIdle {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+@keyframes girlIdle {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+@keyframes coupleHeartPulse {
+  0%, 100% { transform: scale(1); opacity: 0.9; }
+  50% { transform: scale(1.3); opacity: 1; }
 }
 
 .final-text {
