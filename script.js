@@ -349,6 +349,11 @@
       const finalContent = document.getElementById('finalContent');
 
       setTimeout(() => {
+        // Start background song (loops forever)
+        const bgSong = document.getElementById('audioBgSong');
+        bgSong.volume = 0.5;
+        bgSong.play().catch(() => {});
+
         finalVideo.play().catch(() => {
           // If video fails, show content immediately
           showFinalContent(finalVideo, finalContent);
