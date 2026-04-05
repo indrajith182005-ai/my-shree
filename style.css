@@ -1107,6 +1107,146 @@ body {
 }
 
 /* ═══════════════════════════════════════════════════
+   SONG TEASE OVERLAY
+   ═══════════════════════════════════════════════════ */
+.song-tease-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(255, 222, 235, 0.85);
+  backdrop-filter: blur(8px);
+  z-index: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: fadeIn 0.4s ease-out;
+  transition: opacity 0.4s;
+}
+
+/* Loader */
+.song-tease-loader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.song-tease-loader__icon {
+  font-size: 3.5rem;
+  animation: loaderBounce 0.6s ease-in-out infinite alternate;
+}
+
+@keyframes loaderBounce {
+  from { transform: translateY(0) scale(1); }
+  to { transform: translateY(-10px) scale(1.1); }
+}
+
+.song-tease-loader__text {
+  font-family: var(--font-body);
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--pink-700);
+}
+
+.song-tease-loader__bar {
+  width: 200px;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.song-tease-loader__fill {
+  width: 0;
+  height: 100%;
+  background: linear-gradient(90deg, var(--pink-400), var(--pink-600));
+  border-radius: 10px;
+  animation: loaderFill 2s ease-in-out forwards;
+}
+
+@keyframes loaderFill {
+  0% { width: 0; }
+  70% { width: 85%; }
+  90% { width: 92%; }
+  100% { width: 95%; }
+}
+
+/* Tease message card */
+.song-tease-card {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 24px;
+  padding: 2.5rem 2rem;
+  width: min(380px, 88vw);
+  text-align: center;
+  box-shadow: var(--shadow-lg), 0 0 40px rgba(240, 101, 149, 0.2);
+  position: relative;
+  overflow: visible;
+  animation: teaseCardPop 0.6s var(--ease-out-back);
+}
+
+@keyframes teaseCardPop {
+  0% { opacity: 0; transform: scale(0.5) translateY(30px); }
+  60% { transform: scale(1.05) translateY(-5px); }
+  100% { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+.song-tease-card__line1 {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  color: var(--pink-700);
+  margin-bottom: 0.8rem;
+}
+
+.song-tease-card__line2 {
+  font-family: var(--font-handwritten);
+  font-size: 1.3rem;
+  color: #5c3a50;
+  margin-bottom: 0.6rem;
+}
+
+.song-tease-card__line3 {
+  font-family: var(--font-handwritten);
+  font-size: 1.35rem;
+  color: var(--pink-600);
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+}
+
+.song-tease-card__close {
+  background: var(--gradient-btn-yes);
+  color: #fff;
+  padding: 0.8rem 2rem;
+  font-size: 1rem;
+  border-radius: 50px;
+  box-shadow: var(--shadow-glow-green);
+}
+
+.song-tease-card__close:hover {
+  transform: translateY(-2px) scale(1.05);
+}
+
+/* Floating hearts around card */
+.song-tease-card__hearts {
+  position: absolute;
+  inset: -40px;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.song-tease-heart {
+  position: absolute;
+  font-size: 1.3rem;
+  opacity: 0;
+  animation: teaseHeartFloat 3s ease-in-out infinite;
+}
+
+@keyframes teaseHeartFloat {
+  0%, 100% { opacity: 0; transform: translateY(0) scale(0.5); }
+  30% { opacity: 1; }
+  70% { opacity: 0.8; }
+  100% { opacity: 0; transform: translateY(-30px) scale(1.1); }
+}
+
+/* ═══════════════════════════════════════════════════
    RESPONSIVE
    ═══════════════════════════════════════════════════ */
 @media (max-width: 520px) {

@@ -337,8 +337,7 @@
     });
 
     btnSong.addEventListener('click', () => {
-      // Open a romantic song (can be changed to any URL)
-      window.open('https://www.youtube.com/watch?v=450p7goxZqg', '_blank');
+      showSongTease();
     });
 
     btnFinal.addEventListener('click', () => {
@@ -501,6 +500,67 @@
       el.style.opacity = `${0.5 + Math.random() * 0.5}`;
       icecreamRain.appendChild(el);
     }
+  }
+  // ═══════════════════════════════════════════════════
+  // SONG TEASE — Fake loader → teasing message
+  // ═══════════════════════════════════════════════════
+  function showSongTease() {
+    // Create overlay
+    const overlay = document.createElement('div');
+    overlay.className = 'song-tease-overlay';
+
+    // Loading state
+    overlay.innerHTML = `
+      <div class="song-tease-loader">
+        <div class="song-tease-loader__icon">🎵</div>
+        <p class="song-tease-loader__text">Loading song...</p>
+        <div class="song-tease-loader__bar">
+          <div class="song-tease-loader__fill"></div>
+        </div>
+      </div>
+    `;
+    document.body.appendChild(overlay);
+
+    // After 2s, switch to teasing message
+    setTimeout(() => {
+      overlay.innerHTML = `
+        <div class="song-tease-card">
+          <div class="song-tease-card__hearts" id="songTeaseHearts"></div>
+          <p class="song-tease-card__line1">You said after exams… 😌</p>
+          <p class="song-tease-card__line2">so now you'll have to wait…</p>
+          <p class="song-tease-card__line3">don't regret it later 💗</p>
+          <button class="btn song-tease-card__close">okay fine 😤</button>
+        </div>
+      `;
+
+      // Add floating hearts around card
+      const heartsContainer = document.getElementById('songTeaseHearts');
+      const hearts = ['💗', '💕', '💖', '✨', '💗'];
+      for (let i = 0; i < 8; i++) {
+        const h = document.createElement('span');
+        h.className = 'song-tease-heart';
+        h.textContent = hearts[Math.floor(Math.random() * hearts.length)];
+        h.style.left = `${Math.random() * 100}%`;
+        h.style.top = `${Math.random() * 100}%`;
+        h.style.animationDelay = `${Math.random() * 2}s`;
+        h.style.animationDuration = `${2 + Math.random() * 2}s`;
+        heartsContainer.appendChild(h);
+      }
+
+      // Close button
+      overlay.querySelector('.song-tease-card__close').addEventListener('click', () => {
+        overlay.style.opacity = '0';
+        setTimeout(() => overlay.remove(), 400);
+      });
+    }, 2000);
+
+    // Also close by clicking overlay background
+    overlay.addEventListener('click', (e) => {
+      if (e.target === overlay) {
+        overlay.style.opacity = '0';
+        setTimeout(() => overlay.remove(), 400);
+      }
+    });
   }
 
 })();
