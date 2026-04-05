@@ -377,9 +377,6 @@
 
     // Start ice cream rain
     setTimeout(startIcecreamRain, 300);
-
-    // Start ring drop
-    setTimeout(startRingDrop, 1500);
   }
 
   // ═══════════════════════════════════════════════════
